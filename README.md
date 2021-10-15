@@ -7,14 +7,21 @@
 ## Installation:
 <br/>
 
-<h3>Clone the repository: <h3/>
+<h3>Clone the repository: </h3>
 
 ```
-$ git clone https://github.com/roberto-pg/mybooks-back
-$ cd mybooks-back
-$ yarn
-$ touch .env
+git clone https://github.com/roberto-pg/mybooks-back
 ```
+```
+cd mybooks-back
+```
+```
+yarn
+```
+```
+touch .env
+```
+
 </br>
 
 <h3>Enter static values into the .env file:</h3>
@@ -36,11 +43,13 @@ DIR_IMAGE=http://localhost:8181/
 
 ## Create Docker Containers:
 <br/>
-<h3>Run the command at the root of the project:<h3/>
+<h3>Run the command at the root of the project:</h3>
 
 ```
-$ docker-compose up -d
-$ docker ps -a (show the containers)
+docker-compose up -d
+```
+```
+docker ps -a
 ```
 
 <br/>
@@ -49,8 +58,10 @@ $ docker ps -a (show the containers)
 <h3>Access the Docker container from the terminal:</h3>
 
 ```
-$ docker exec -it mybooks-postgres bash
-# psql -U postgres
+docker exec -it mybooks-postgres bash
+```
+```
+psql -U postgres
 ```
 
 <br/>
@@ -59,10 +70,16 @@ $ docker exec -it mybooks-postgres bash
 <h3>Create Database and User (inside the mybooks-postgres container):</h3>
 
 ```
-# create database <database_name>;
-# create user <username> with password "<password>";
-# grant all privileges on database "<database_name>" to <username>;
-# Ctrl + C (get out of the container)
+create database <database_name>;
+```
+```
+create user <username> with password "<password>";
+```
+```
+grant all privileges on database "<database_name>" to <username>;
+```
+```
+Ctrl + C
 ```
 
 <br/>
@@ -71,9 +88,13 @@ $ docker exec -it mybooks-postgres bash
 <h3>Run Migrations (Inside the mybooks container):</h3>
 
 ```
-$ docker exec -it mybooks sh
-# yarn knex migrate:latest
-# Ctrl + C (get out of the container)
+docker exec -it mybooks sh
+```
+```
+yarn knex migrate:latest
+```
+```
+Ctrl + C
 ```
 
 <br/>
