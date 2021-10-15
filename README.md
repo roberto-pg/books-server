@@ -79,7 +79,7 @@ create user <username> with password "<password>";
 grant all privileges on database "<database_name>" to <username>;
 ```
 ```
-Ctrl + C
+Ctrl + D
 ```
 
 <br/>
@@ -94,7 +94,7 @@ docker exec -it mybooks sh
 yarn knex migrate:latest
 ```
 ```
-Ctrl + C
+Ctrl + D
 ```
 
 <br/>
