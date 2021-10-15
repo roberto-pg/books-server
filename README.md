@@ -10,8 +10,8 @@
 <h3>Clone the repository: <h3/>
 
 ```
-$ git clone https://github.com/roberto-pg/mybooks-web
-$ cd mybooks-web
+$ git clone https://github.com/roberto-pg/mybooks-back
+$ cd mybooks-back
 $ yarn
 $ touch .env
 ```
