@@ -24,7 +24,7 @@ services:
        
   app:
     build: .
-    container_name: mybooks
+    container_name: mybooks-server
     ports:
       - "3333:3333"
     volumes: 
