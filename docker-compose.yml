@@ -17,7 +17,7 @@ services:
     ports:
       - "8181:80"
     volumes:
-      - /home/rpg/Docker/nginx/html/imageBook:/usr/share/nginx/html
+      - /home/rpg/Docker/mybooks-nginx/html:/usr/share/nginx/html
     restart: always
     networks:
       - books
@@ -29,7 +29,7 @@ services:
       - "3333:3333"
     volumes: 
       - .:/usr/app
-      - /home/rpg/Docker/nginx/html/imageBook:/usr/app/public/images
+      - /home/rpg/Docker/mybooks-nginx/html:/usr/app/public/images
     command: yarn prod
     restart: always
     networks: 
