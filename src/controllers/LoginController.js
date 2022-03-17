@@ -34,14 +34,7 @@ module.exports = {
       token: generateToken({ id: user.id }),
     };
 
-    return res.send({user: serializedUser});
-
-    // user.password = undefined;
-
-    // return res.send({
-    //     user,
-    //     token: generateToken({ id: user.id }),
-    // });
+    return res.send({ user: serializedUser });
   }
 
 };
