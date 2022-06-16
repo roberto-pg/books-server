@@ -7,6 +7,7 @@ module.exports = {
   async create(req, res) {
     const { title, author, nationality, year, read } = req.body;
     const imageurl = process.env.DIR_IMAGE + req.file.filename;
+
     try {
       await connection("books").insert({
         id: uuidv4(),
