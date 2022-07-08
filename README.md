@@ -1,10 +1,12 @@
 # My Books Api
-### Restfull API for the My Books app
-<br/>
-<br/>
 
+### Restfull API for the My Books app
+
+<br/>
+<br/>
 
 ## Installation:
+
 <br/>
 
 <h3>Clone the repository: </h3>
@@ -12,12 +14,15 @@
 ```
 git clone https://github.com/roberto-pg/mybooks-back
 ```
+
 ```
 cd mybooks-back
 ```
+
 ```
 yarn
 ```
+
 ```
 touch .env
 ```
@@ -33,8 +38,8 @@ DB_NAME= <database_name>
 DB_USER= <username>
 DB_PASS= <password>
 JWT_SECRET= (choose a password to generate the jwt token)
-IMAGE_STORAGE=./public/images/
-DIR_IMAGE=http://localhost:8181/
+IMAGE_STORAGE=./public/images
+DIR_IMAGE=http://localhost:8080/
 ```
 
 <br/>
@@ -42,12 +47,23 @@ DIR_IMAGE=http://localhost:8181/
 <br/>
 
 ## Create Docker Containers:
+
 <br/>
+
+### This Server uses Nginx to provide static images of the book covers. Install the Nginx container before running docker-compose:
+
+```
+docker run -d --name nginx -p 8080:80 --restart always -v /home/<user>/docker/nginx:/usr/share/nginx/html nginx
+```
+
+<br/>
+
 <h3>Run the command at the root of the project:</h3>
 
 ```
 docker-compose up -d
 ```
+
 ```
 docker ps -a
 ```
@@ -60,6 +76,7 @@ docker ps -a
 ```
 docker exec -it mybooks-postgres bash
 ```
+
 ```
 psql -U postgres
 ```
@@ -72,12 +89,15 @@ psql -U postgres
 ```
 create database <database_name>;
 ```
+
 ```
 create user <username> with password "<password>";
 ```
+
 ```
 grant all privileges on database "<database_name>" to <username>;
 ```
+
 ```
 Ctrl + D
 ```
@@ -90,9 +110,11 @@ Ctrl + D
 ```
 docker exec -it mybooks sh
 ```
+
 ```
 yarn knex migrate:latest
 ```
+
 ```
 Ctrl + D
 ```
