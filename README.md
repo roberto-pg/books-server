@@ -61,7 +61,7 @@ docker run -d --name nginx -p 8080:80 --restart always -v /home/<user>/docker/ng
 <h3>Run the command at the root of the project:</h3>
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 ```
