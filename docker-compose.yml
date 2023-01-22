@@ -5,7 +5,7 @@ services:
     image: postgres:10.0-alpine
     container_name: books-postgres
     volumes:
-      - /home/adevdomain/docker/books-postgres:/var/lib/postgresql/data
+      - /home/rpg/docker/books-postgres:/var/lib/postgresql/data
     restart: always
     networks:
       - books
@@ -17,7 +17,7 @@ services:
       - "3333:3333"
     volumes:
       - .:/usr/app
-      - /home/adevdomain/docker/nginx/books:/usr/app/public/images
+      - /home/rpg/docker/nginx/books:/usr/app/public/images
     command: yarn prod
     restart: always
     networks:
