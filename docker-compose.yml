@@ -11,6 +11,8 @@ services:
     volumes:
       - /home/rpg/docker/books-postgres:/var/lib/postgresql/data
     restart: always
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
     networks:
       - books-net
 

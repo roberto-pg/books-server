@@ -74,7 +74,7 @@ docker ps -a
 <h3>Access the Docker container from the terminal:</h3>
 
 ```
-docker exec -it mybooks-postgres bash
+docker exec -it books-db bash
 ```
 
 ```
