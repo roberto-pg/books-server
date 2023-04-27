@@ -12,15 +12,15 @@
 <h3>Clone the repository: </h3>
 
 ```
-git clone https://github.com/roberto-pg/mybooks-back
+git clone https://github.com/roberto-pg/mybooks-back.git mybooks
 ```
 
 ```
-cd mybooks-back
+cd mybooks
 ```
 
 ```
-yarn
+npm install
 ```
 
 ```

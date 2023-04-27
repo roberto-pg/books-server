@@ -1,28 +1,29 @@
 version: "3"
 
+networks:
+  books-net:
+    driver: bridge
+
 services:
   postgres:
-    image: postgres:10.0-alpine
+    image: postgres:latest@sha256:6b91d38a9c596fa4e6a1276f6f81810882d9f292a09f9cf2647c6a554c8b6d00
     container_name: books-db
     volumes:
       - /home/rpg/docker/books-postgres:/var/lib/postgresql/data
     restart: always
     networks:
-      - books
+      - books-net
 
   app:
-    build: .
-    container_name: books-api
+    image: node:lts-alpine@sha256:51e341881c2b77e52778921c685e711a186a71b8c6f62ff2edfc6b6950225a2f
+    container_name: books
     ports:
       - "3333:3333"
     volumes:
       - .:/usr/app
       - /home/rpg/docker/nginx/books:/usr/app/public/images
-    command: yarn prod
+    command: sh -c "npm run prod"
     restart: always
     networks:
-      - books
+      - books-net
 
-networks:
-  books:
-    driver: bridge
