@@ -12,11 +12,11 @@
 <h3>Clone the repository: </h3>
 
 ```
-git clone https://github.com/roberto-pg/mybooks-back.git mybooks
+git clone https://github.com/roberto-pg/mybooks-back.git books
 ```
 
 ```
-cd mybooks
+cd books
 ```
 
 ```
@@ -33,7 +33,7 @@ touch .env
 
 ```
 PORT=3333
-DB_HOST=mybooks-postgres
+DB_HOST=books-db
 DB_NAME= <database_name>
 DB_USER= <username>
 DB_PASS= <password>
@@ -84,14 +84,14 @@ psql -U postgres
 <br/>
 <br/>
 
-<h3>Create Database and User (inside the mybooks-postgres container):</h3>
+<h3>Create Database and User (inside the books-db container):</h3>
 
 ```
 create database <database_name>;
 ```
 
 ```
-create user <username> with password "<password>";
+create user <username> with password '<password>';
 ```
 
 ```
@@ -105,14 +105,14 @@ Ctrl + D
 <br/>
 <br/>
 
-<h3>Run Migrations (Inside the mybooks container):</h3>
+<h3>Run Migrations (Inside the books container):</h3>
 
 ```
-docker exec -it mybooks sh
+docker exec -it books sh
 ```
 
 ```
-yarn knex migrate:latest
+npx knex migrate:latest
 ```
 
 ```
