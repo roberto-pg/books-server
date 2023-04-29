@@ -99,6 +99,14 @@ grant all privileges on database "<database_name>" to <username>;
 ```
 
 ```
+\c books
+```
+
+```
+grant usage, create on schema public to <username>;
+```
+
+```
 Ctrl + D
 ```
 
