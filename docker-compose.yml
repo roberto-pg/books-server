@@ -21,6 +21,7 @@ services:
     container_name: books
     ports:
       - "3333:3333"
+    working_dir: /usr/app
     volumes:
       - .:/usr/app
       - /home/rpg/docker/nginx/books:/usr/app/public/images
