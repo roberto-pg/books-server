@@ -12,7 +12,7 @@
 <h3>Clone the repository: </h3>
 
 ```
-git clone https://github.com/roberto-pg/books-back.git books
+git clone https://github.com/roberto-pg/books-server.git books
 ```
 
 ```
