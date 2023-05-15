@@ -7,21 +7,32 @@ module.exports = {
   async create(req, res) {
     const { title, author, nationality, year, read } = req.body;
     const imageurl = process.env.DIR_IMAGE + req.file.filename;
-
+    var imageName = imageurl.split("/")[4];
     try {
-      await connection("books").insert({
-        id: uuidv4(),
-        title,
-        author,
-        nationality,
-        imageurl,
-        year,
-        read,
-      });
+      if (title && author && nationality && year && read && read && !isNaN(year) && (read == "true" || read == "false")) {
+        await connection("books").insert({
+          id: uuidv4(),
+          title,
+          author,
+          nationality,
+          imageurl,
+          year,
+          read,
+        });
+        return res.json({ success: true, title: title });
+      } else {
+        fs.unlink(process.env.IMAGE_STORAGE + "/" + imageName, function (err) {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log("successfully deleted local image");
+          }
+        });
+        return res.status(400).json({ Error: "Informe os dados do novo livro" });
+      }
     } catch (error) {
-      return res.status(400).json({ Error: error });
+      return error;
     }
-    return res.json({ success: true, title: title });
   },
 
   async index(req, res) {
@@ -32,7 +43,6 @@ module.exports = {
     const [count] = await connection("books").count();
 
     res.header("X-Total-Count", count["count"]);
-
     return res.json(books);
   },
 

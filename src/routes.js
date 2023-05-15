@@ -42,18 +42,9 @@ routes.delete('/users/:id', celebrate({
 routes.get('/books', authMiddleware, BookController.index);
 
 routes.post('/books',
+  authMiddleware,
   multer(multerConfig).single('imageurl'),
-  celebrate({
-    [Segments.BODY]: Joi.object().keys({
-      title: Joi.string().required(),
-      author: Joi.string().required(),
-      nationality: Joi.string().required(),
-      imageurl: Joi.string(),
-      year: Joi.number().required(),
-      read: Joi.boolean().required()
-    })
-
-  }), authMiddleware, BookController.create);
+  BookController.create);
 
 routes.delete('/books/:id', celebrate({
   [Segments.PARAMS]: Joi.object().keys({
@@ -83,6 +74,7 @@ routes.patch('/books/:id', celebrate({
 }), authMiddleware, BookController.updateById);
 
 routes.put('/books/image/:id',
+  authMiddleware,
   multer(multerConfig).single('imageurl'),
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
@@ -91,6 +83,6 @@ routes.put('/books/image/:id',
     [Segments.BODY]: Joi.object().keys({
       imageurl: Joi.string()
     })
-  }), authMiddleware, ImageController.updateImage);
+  }), ImageController.updateImage);
 
 module.exports = routes;
